@@ -1,0 +1,48 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Master Suite" parallel="classes" thread-count="3">
+    <parameter name="url" value="https://bbb.testpro.io"/>
+    <parameter name="username" value="sim@email.com"/>
+    <parameter name="password" value="te$t$tudent"/>
+    <parameter name="browser" value="Chrome"/>
+    <test name="Selenium Tests">
+        <classes>
+            <class name="pageObjectTests.LoginTestFactory">
+                <methods>
+                    <include name="flakyTest"/>
+                    <include name="loginToAppFactory_correctCredentials"/>
+                    <include name="loginToAppFactory_incorrectCredentials"/>
+                    <include name="loginToAppFactory_correctCredentials1"/>
+                    <include name="loginToAppFactory_incorrectCredentials1"/>
+                    <include name="loginToAppFactory_correctCredentials2"/>
+                    <include name="loginToAppFactory_incorrectCredentials2"/>
+                    <include name="loginToAppFactory_correctCredentials3"/>
+                    <include name="loginToAppFactory_incorrectCredentials3"/>
+                </methods>
+            </class>
+            <class name="pageObjectTests.LoginToApp">
+                <methods>
+                    <include name="loginToApp_correctCredentials"/>
+                    <include name="loginToApp_incorrectCredentials"/>
+                    <include name="loginToApp_correctCredentials1"/>
+                    <include name="loginToApp_incorrectCredentials1"/>
+                    <include name="loginToApp_correctCredentials2"/>
+                    <include name="loginToApp_incorrectCredentials2"/>
+                    <include name="loginToApp_correctCredentials3"/>
+                    <include name="loginToApp_incorrectCredentials3"/>
+                </methods>
+            </class>
+            <class name="pageObjectTests.PlaylistTest">
+                <methods>
+                    <include name="createPlaylist"/>
+                    <include name="renamePlaylist"/>
+                    <include name="createPlaylist1"/>
+                    <include name="renamePlaylist1"/>
+                    <include name="createPlaylist2"/>
+                    <include name="renamePlaylist2"/>
+                    <include name="createPlaylist3"/>
+                    <exclude name="renamePlaylist3"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
