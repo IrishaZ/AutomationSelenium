@@ -1,14 +1,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Master Suite" parallel="classes" thread-count="3">
+<suite name="Master Suite">
+    <listeners>
+        <listener class-name="listener.Listeners"/>
+    </listeners>
     <parameter name="url" value="https://bbb.testpro.io"/>
     <parameter name="username" value="sim@email.com"/>
     <parameter name="password" value="te$t$tudent"/>
     <parameter name="browser" value="Chrome"/>
     <test name="Selenium Tests">
         <classes>
-            <class name="pageObjectTests.PlaylistTest">
+            <class name="pageObjectTests.LoginToApp">
                 <methods>
-                    <include name="renamePlaylist"/>
+                    <include name="loginToApp_incorrectCredentials"/>
                 </methods>
             </class>
         </classes>

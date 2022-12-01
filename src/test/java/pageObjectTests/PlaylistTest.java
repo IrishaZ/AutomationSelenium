@@ -11,7 +11,7 @@ public class PlaylistTest extends BaseTest{
     public void createPlaylist(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("sim@email.com","te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username,password);
 
 //        String playlistName = RandomStringUtils.randomAlphabetic(10);
         String playlistName = faker.job().title();
@@ -24,7 +24,7 @@ public class PlaylistTest extends BaseTest{
     public void renamePlaylist(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("sim@email.com","te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username,password);
         String playlistName = faker.job().title();
         int playlistId = mainPage.createPlaylist(playlistName);
 
@@ -37,7 +37,7 @@ public class PlaylistTest extends BaseTest{
     public void createPlaylist1(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("sim@email.com","te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username,password);
 
 //        String playlistName = RandomStringUtils.randomAlphabetic(10);
         String playlistName = faker.job().title();
@@ -50,7 +50,7 @@ public class PlaylistTest extends BaseTest{
     public void renamePlaylist1(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("sim@email.com","te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username,password);
         String playlistName = faker.job().title();
         int playlistId = mainPage.createPlaylist(playlistName);
 
@@ -63,7 +63,7 @@ public class PlaylistTest extends BaseTest{
     public void createPlaylist2(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("sim@email.com","te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username,password);
 
 //        String playlistName = RandomStringUtils.randomAlphabetic(10);
         String playlistName = faker.job().title();
@@ -76,7 +76,7 @@ public class PlaylistTest extends BaseTest{
     public void renamePlaylist2(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("sim@email.com","te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username,password);
         String playlistName = faker.job().title();
         int playlistId = mainPage.createPlaylist(playlistName);
 
@@ -89,7 +89,7 @@ public class PlaylistTest extends BaseTest{
     public void createPlaylist3(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("sim@email.com","te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username,password);
 
 //        String playlistName = RandomStringUtils.randomAlphabetic(10);
         String playlistName = faker.job().title();
@@ -102,7 +102,7 @@ public class PlaylistTest extends BaseTest{
     public void renamePlaylist3(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp("sim@email.com","te$t$tudent");
+        MainPage mainPage = loginPage.loginToApp(username,password);
         String playlistName = faker.job().title();
         int playlistId = mainPage.createPlaylist(playlistName);
 

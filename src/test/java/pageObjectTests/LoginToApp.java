@@ -17,7 +17,7 @@ public class LoginToApp extends BaseTest{
     public void loginToApp_incorrectCredentials(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(url);
-        loginPage.loginToApp(username,"WrongPassword");
+        loginPage.loginToApp(username,"te$t$tudent");
         Assert.assertTrue(loginPage.isError());
     }
     @Test
