@@ -123,7 +123,7 @@ public class KoelLogin {
     }
     @Test
     public void sum() throws InterruptedException {
-        List<WebElement> elements = driver.findElements(By.tagName("button"));
+        List<WebElement> elements = driver.findElements(By.tagName("button1"));
         System.out.println(elements.size());
 //        WebElement blueButton = driver.findElement(By.tagName("button"));
         driver.navigate().refresh();
