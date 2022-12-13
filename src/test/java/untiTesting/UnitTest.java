@@ -7,8 +7,13 @@ import tickets.PlaneTickets;
 public class UnitTest {
     @Test
     public void ticket_infant_freeTicket(){
+        // Arrange
         PlaneTickets infant = new PlaneTickets(1,1000);
+
+        // Act
         double actualResult = infant.calculate();
+
+        // Assert
         Assert.assertEquals(actualResult,0.0);
     }
     @Test
