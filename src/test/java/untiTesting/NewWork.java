@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import tickets.PlaneTickets;
 
-public class UnitTest {
+public class NewWork {
     @Test
     public void ticket_infant_freeTicket(){
         PlaneTickets infant = new PlaneTickets(1,1000);
