@@ -1,25 +1,54 @@
 package apiPetsore;
 
+import helper.DataGenerator;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import models.Category;
 import models.Pet;
-import org.openqa.selenium.json.Json;
+
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
 
 public class PetTest {
-    @Test
-    public void getPetById(){
-        String baseUrl = "https://petstore.swagger.io/v2";
+    private long petId;
+    private Pet pet;
+    private final String baseUrl = "https://petstore.swagger.io/v2";
+    @BeforeMethod
+    public void createPet(){
+        pet = DataGenerator.getPet();
+
         Response response =
                 given()
                         .baseUri(baseUrl)
                         .basePath("/pet")
-                        .pathParam("petId",111)
+                        .header("Accept","application/json")
+                        .header("Content-type","application/json")
+                        .body(pet)
+                        .when()
+                        .post()
+                        .then()
+                        .statusCode(200)
+                        .extract()
+                        .response();
+        JsonPath json = response.jsonPath();
+        petId=json.getLong("id");
+        System.out.println(petId);
+    }
+    @AfterMethod
+    public void deletePet(){
+        given().baseUri(baseUrl+"/pet/"+petId).when().delete().then().statusCode(200);
+    }
+    @Test
+    public void getPetById(){
+        Response response =
+                given()
+                        .baseUri(baseUrl)
+                        .basePath("/pet")
+                        .pathParam("petId",petId)
                         .header("Accept","application/json")
                 .when()
                         .get("/{petId}")
@@ -30,11 +59,27 @@ public class PetTest {
 
         JsonPath json = response.jsonPath();
         Pet responsePet = json.getObject("$", Pet.class);
-
-        Category category = json.getObject("category", Category.class);
-        long id = json.getLong("id");
-        String n = json.getString("name");
-
-        System.out.println(responsePet.name);
+        Assert.assertEquals(pet.name,responsePet.name);
+    }
+    @Test
+    public void updatePet(){
+        Pet updatedPet = DataGenerator.getPet();
+        updatedPet.id = petId;
+        Response response =
+                given()
+                        .baseUri(baseUrl)
+                        .basePath("/pet")
+                        .header("Accept","application/json")
+                        .header("Content-type","application/json")
+                        .body(updatedPet)
+                        .when()
+                        .put()
+                        .then()
+                        .statusCode(200)
+                        .extract()
+                        .response();
+        JsonPath json = response.jsonPath();
+        Pet petResponse = json.getObject("$", Pet.class);
+        Assert.assertEquals(updatedPet.name,petResponse.name);
     }
 }
