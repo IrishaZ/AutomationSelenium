@@ -3,15 +3,15 @@
     <listeners>
         <listener class-name="listener.Listeners"/>
     </listeners>
-    <parameter name="url" value="https://bbb.testpro.io"/>
+    <parameter name="url" value="https://bbb.testpro.io/"/>
     <parameter name="username" value="sim@email.com"/>
     <parameter name="password" value="te$t$tudent"/>
     <parameter name="browser" value="Chrome"/>
     <test name="Selenium Tests">
         <classes>
-            <class name="pageObjectTests.LoginToApp">
+            <class name="pageObjectTests.HybridTest">
                 <methods>
-                    <include name="loginToApp_incorrectCredentials"/>
+                    <include name="hybridRenamePlaylist"/>
                 </methods>
             </class>
         </classes>
