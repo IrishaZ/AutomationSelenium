@@ -1,5 +1,6 @@
 package pageObjectTests;
 
+import adapter.DbAdapter;
 import helper.Token;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -53,6 +54,7 @@ public class HybridTest extends BaseTest{
         MainPage mainPage = login();
         String newName = faker.artist().name();
         mainPage.renamePlaylist(playlistId,newName);
-        Assert.assertTrue(mainPage.playlistExist(playlistId,newName));
+        String nameFromDb = DbAdapter.getPlaylistName(playlistId);
+        Assert.assertEquals(nameFromDb,newName);
     }
 }
