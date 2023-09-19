@@ -16,7 +16,7 @@ public class BrowserFabric {
             case FIREFOX: {
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions options = new FirefoxOptions();
-                options.addArguments("--headless");
+//                options.addArguments("--headless");
                 options.addArguments("--width=1400");
                 options.addArguments("--height=1000");
                 return new FirefoxDriver(options);
