@@ -1,13 +1,13 @@
 package models_my;
 
-public class Categorey {
+public class Category {
     private long id;
     private String name;
 
-    public Categorey() {
+    public Category() {
     }
 
-    public Categorey(long id, String name) {
+    public Category(long id, String name) {
         this.id = id;
         this.name = name;
     }
