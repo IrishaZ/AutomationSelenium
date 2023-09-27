@@ -79,7 +79,7 @@ public class MainPage extends BasePage {
             return false;
         }
     }
-    public void renamePlaylist(Integer playlistId, String playlistName) throws InterruptedException {
+    public void renamePlaylist(int playlistId, String playlistName) throws InterruptedException {
         WebElement playlist = getPlaylistById(playlistId);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", playlist);
         actions.doubleClick(playlist).build().perform();

@@ -27,9 +27,7 @@ public class BaseTest {
         this.password=password;
         token = Token.get(username,password,url);
         BrowserType bt = browser.equals("Chrome") ? BrowserType.CHROME : BrowserType.FIREFOX;
-
         driver = BrowserFabric.getDriver(bt);
-
         faker = new Faker();
     }
 
