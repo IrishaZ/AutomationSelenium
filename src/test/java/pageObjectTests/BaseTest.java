@@ -1,8 +1,7 @@
 package pageObjectTests;
 
 import com.github.javafaker.Faker;
-import enums.BrowserType;
-import helper.BrowserFabric;
+import helper.PickBrowser;
 import helper.Token;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -24,20 +23,14 @@ public class BaseTest {
         this.url=url;
         this.email = email;
         this.password=password;
-
-        BrowserType bt = browser.equals("Firefox") ? BrowserType.FIREFOX : BrowserType.CHROME;
-
-        // BrowserType bt; // if(browser.equals("Chrome")){bt=BrowserType.CHROME;} else {bt=BrowserType.FIREFOX;}
-        driver = BrowserFabric.getDriver(bt);
+        driver= PickBrowser.pickBrowser(browser);
         token = Token.getToken(email,password,url);
         faker = new Faker();
-        System.out.println("Before method in base test");
     }
     @AfterMethod
     public void afterAll() throws InterruptedException {
         Thread.sleep(100);
         driver.quit();
-        System.out.println("After method in base test");
     }
     public MainPage login(){
         driver.get(url);

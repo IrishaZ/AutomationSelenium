@@ -1,4 +1,4 @@
-package pageObjectTests;
+package pageObjectTests.Additions;
 
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;

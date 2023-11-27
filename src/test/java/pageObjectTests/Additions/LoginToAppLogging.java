@@ -1,6 +1,7 @@
-package pageObjectTests;
+package pageObjectTests.Additions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pageObjectTests.BaseTest;
 import pageObjects.LoginPage;
 import pageObjects.LoginPageLogging;
 import pageObjects.MainPage;

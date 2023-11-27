@@ -4,19 +4,24 @@
     <parameter name="url" value="https://qa.koel.app"/>
     <parameter name="email" value="demo@class.com"/>
     <parameter name="password" value="te$t$tudent"/>
-    <parameter name="browser" value="Firefox"/>
+    <parameter name="browser" value="Edge"/>
     <test name="Selenium Tests">
         <classes>
-            <class name="pageObjectTests_my.LoginToApp">
+            <class name="pageObjectTests.LoginToApp">
                 <methods>
                     <include name="loginCorrectCredentials"/>
                     <include name="loginWithWrongPassword"/>
                 </methods>
             </class>
-            <class name="pageObjectTests_my.PlaylistTests">
+            <class name="pageObjectTests.PlaylistTests">
                 <methods>
                     <include name="createPlaylist"/>
                     <include name="renamePlaylist"/>
+                </methods>
+            </class>
+            <class name="pageObjectTests.PlaylistTestsHybrid">
+                <methods>
+                    <include name="renamePlaylistHybrid"/>
                 </methods>
             </class>
 

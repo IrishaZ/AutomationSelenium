@@ -1,10 +1,11 @@
-package pageObjectTests;
+package pageObjectTests.Additions;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pageObjectTests.BaseTest;
 import pageObjects.MainPage;
 
-public class LoginPageFactory extends BaseTest{
+public class LoginPageFactory extends BaseTest {
 
     @Test
     public void loginToAppFactory_correctCredentials(){

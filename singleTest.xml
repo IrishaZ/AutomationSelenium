@@ -4,19 +4,14 @@
     <parameter name="url" value="https://qa.koel.app"/>
     <parameter name="email" value="demo@class.com"/>
     <parameter name="password" value="te$t$tudent"/>
-    <parameter name="browser" value="Firefox"/>
+    <parameter name="browser" value="Chrome"/>
     <test name="Selenium Tests">
         <classes>
-            <class name="pageObjectTests_my.PlaylistTestsHybrid">
+            <class name="pageObjectTests.SmartPlaylistTests">
                 <methods>
-                    <include name="renamePlaylistHybrid"/>
+                    <include name="createNewSmartPlaylist"/>
                 </methods>
             </class>
-<!--            <class name="pageObjectTests.HybridTest">-->
-<!--                <methods>-->
-<!--                    <include name="hybridRenamePlaylist"/>-->
-<!--                </methods>-->
-<!--            </class>-->
         </classes>
     </test>
 </suite>
