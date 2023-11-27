@@ -1,65 +1,23 @@
 package pageObjectTests;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.LoginPage;
 import pageObjects.MainPage;
 
-public class LoginToApp extends BaseTest{
+public class LoginToApp extends BaseTest {
+    String wrongPassword="wrongPassword";
     @Test
-    public void loginToApp_correctCredentials(){
+    public void loginCorrectCredentials() {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp(username, password);
+        loginPage.openPage(url);
+        MainPage mainPage =loginPage.loginToApp(email,password);
         Assert.assertTrue(mainPage.isOpen());
     }
     @Test
-    public void loginToApp_incorrectCredentials(){
+    public void loginWithWrongPassword() {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.open(url);
-        loginPage.loginToApp(username,"te$t$tudent");
-        Assert.assertTrue(loginPage.isError());
-    }
-    @Test
-    public void loginToApp_correctCredentials1(){
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp(username, password);
-        Assert.assertTrue(mainPage.isOpen());
-    }
-    @Test
-    public void loginToApp_incorrectCredentials1(){
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open(url);
-        loginPage.loginToApp(username,"WrongPassword");
-        Assert.assertTrue(loginPage.isError());
-    }
-    @Test
-    public void loginToApp_correctCredentials2(){
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp(username, password);
-        Assert.assertTrue(mainPage.isOpen());
-    }
-    @Test
-    public void loginToApp_incorrectCredentials2(){
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open(url);
-        loginPage.loginToApp(username,"WrongPassword");
-        Assert.assertTrue(loginPage.isError());
-    }
-    @Test
-    public void loginToApp_correctCredentials3(){
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open(url);
-        MainPage mainPage = loginPage.loginToApp(username, password);
-        Assert.assertTrue(mainPage.isOpen());
-    }
-    @Test
-    public void loginToApp_incorrectCredentials3(){
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open(url);
-        loginPage.loginToApp(username,"WrongPassword");
+        loginPage.openPage(url);
+        loginPage.loginToApp(email,wrongPassword);
         Assert.assertTrue(loginPage.isError());
     }
 

@@ -9,13 +9,12 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class LoginPageFactory {
     private WebDriver driver;
-
     public LoginPageFactory(WebDriver driver) {
-        this.driver = driver;
-        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,10);
-        PageFactory.initElements(factory,this);
+        this.driver=driver;
+        AjaxElementLocatorFactory factory=new AjaxElementLocatorFactory(driver,10);
+        //ищет элементы только когда мы его используем
+        PageFactory.initElements(factory,this);//ищет элементы
     }
-
     @FindBy(xpath = "//*[@type='email']")
     private WebElement emailField;
 
@@ -28,14 +27,12 @@ public class LoginPageFactory {
     @FindBy(className = "error")
     private WebElement errorFrame;
 
-    public MainPage loginToApp(String username, String password){
+    public pageObjects.MainPage loginToApp(String username, String password){
         emailField.sendKeys(username);
         passwordField.sendKeys(password);
         loginButton.click();
-
         return new MainPage(driver);
     }
-
     public void open(String url){
         driver.get(url);
     }
@@ -46,5 +43,4 @@ public class LoginPageFactory {
             return false;
         }
     }
-
 }

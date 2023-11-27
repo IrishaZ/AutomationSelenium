@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.opera.OperaDriver;
 
 public class BrowserFabric {
     public static WebDriver getDriver(BrowserType browserType){
@@ -17,8 +16,8 @@ public class BrowserFabric {
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions options = new FirefoxOptions();
 //                options.addArguments("--headless");
-                options.addArguments("--width=1400");
-                options.addArguments("--height=1000");
+                options.addArguments("--width=1000");
+                options.addArguments("--height=700");
                 return new FirefoxDriver(options);
             }
             case EDGE:{
@@ -26,7 +25,8 @@ public class BrowserFabric {
                 return new EdgeDriver();
             }
             default:{
-                WebDriverManager.chromedriver().setup();
+                System.setProperty("web.chrome.driver","chromedriver.exe");
+//                WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
 //                options.addArguments("--headless");
                 options.addArguments("window-size=1400,1000");

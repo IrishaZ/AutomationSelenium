@@ -14,37 +14,39 @@ import pageObjects.MainPage;
 public class BaseTest {
     protected WebDriver driver;
     protected String url;
-    protected String username;
+    protected String email;
     protected String password;
     protected Faker faker;
     protected String token;
-
-    @Parameters({"url","username","password","browser"})
+    @Parameters({"url","email","password","browser"})
     @BeforeMethod
-    public void startUp(String url, String username, String password,String browser) {
+    public void beforeAll(String url, String email, String password,String browser){
         this.url=url;
-        this.username = username;
+        this.email = email;
         this.password=password;
-        token = Token.get(username,password,url);
-        BrowserType bt = browser.equals("Chrome") ? BrowserType.CHROME : BrowserType.FIREFOX;
+
+        BrowserType bt = browser.equals("Firefox") ? BrowserType.FIREFOX : BrowserType.CHROME;
+
+        // BrowserType bt; // if(browser.equals("Chrome")){bt=BrowserType.CHROME;} else {bt=BrowserType.FIREFOX;}
         driver = BrowserFabric.getDriver(bt);
+        token = Token.getToken(email,password,url);
         faker = new Faker();
+        System.out.println("Before method in base test");
     }
-
     @AfterMethod
-    public void tearDown() {
+    public void afterAll() throws InterruptedException {
+        Thread.sleep(100);
         driver.quit();
+        System.out.println("After method in base test");
     }
-
     public MainPage login(){
         driver.get(url);
-
         String key = "api-token";
         String value = "\""+token+"\"";
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("localStorage.setItem(arguments[0],arguments[1])",key,value);
-
         driver.navigate().refresh();
         return new MainPage(driver);
     }
+
 }

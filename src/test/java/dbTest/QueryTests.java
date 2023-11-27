@@ -1,13 +1,13 @@
-package dbTest_my;
+package dbTest;
 
-import adapter_my.Queries;
+import adapter.Queries;
 import models.Song;
 import org.testng.annotations.Test;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import static adapter_my.Queries.getSons;
+import static adapter.Queries.getSons;
 
 public class QueryTests {
     @Test

@@ -12,11 +12,10 @@ public class DataGenerator {
         Faker faker = new Faker();
         Random random = new Random();
         String name = faker.funnyName().name();
-        String[]pU = {faker.internet().image()};
-        String status ="pending";
-        Category category = new Category(random.nextLong(), faker.animal().name());
-        Tag[]tags = {new Tag(random.nextLong(),faker.book().title())};
-
-        return new Pet(name,pU,status,category,tags);
+        String[] pU = {faker.internet().image()};
+        String status = "pending";
+        Category category = new Category(random.nextLong(), faker.funnyName().name());
+        Tag[] tags = {new Tag(random.nextLong(), faker.animal().name())};
+        return  new Pet(name,pU,status,category,tags);
     }
 }

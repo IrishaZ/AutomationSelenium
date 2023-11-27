@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import pageObjects.LoginPage;
 
 public class Listeners implements ITestListener {
     private static final Logger log = LogManager.getLogger(Listeners.class);
