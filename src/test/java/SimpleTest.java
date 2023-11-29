@@ -22,4 +22,25 @@ public class SimpleTest {
         }
         driver.quit();
     }
+    @Test(groups = "smoke")
+    public void testLogin() {
+        System.out.println("Executing login test.");
+    }
+
+    @Test(groups = "smoke")
+    public void testHomePage() {
+        System.out.println("Executing home page test.");
+    }
+
+    @Test(groups = "regression")
+    public void testProductSearch() {
+        System.out.println("Executing product search test.");
+    }
+
+    @Test(groups = "regression")
+    public void testCheckout() {
+        System.out.println("Executing checkout test.");
+    }
+
+
 }

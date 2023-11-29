@@ -1,8 +1,9 @@
 package pageObjects;
-import enums.FirstDropdown;
-import enums.SecondDropdown;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MainPage extends BasePage {
@@ -10,6 +11,9 @@ public class MainPage extends BasePage {
     public MainPage(WebDriver driver) {
         super(driver);
         this.actions = new Actions(driver);
+        AjaxElementLocatorFactory factory=new AjaxElementLocatorFactory(driver,10);
+        //ищет элементы только когда мы его используем
+        PageFactory.initElements(factory,this);//ищет элементы
     }
     public  WebElement getPlusButton(){
         By plusButtonLocator = By.cssSelector("[title='Create a new playlist']");
@@ -36,7 +40,7 @@ public class MainPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(successLocator));
         return driver.findElement(successLocator);
     }
-    public void getCreateSmartPlaylistForm(){
+    public void formCSP_open(){
         WebElement plusButton = getPlusButton();
         plusButton.click();
         By newSmartPlaylist=By.xpath("//*[text()='New Smart Playlist']");
@@ -44,38 +48,52 @@ public class MainPage extends BasePage {
         WebElement newSmartPlaylistField=driver.findElement(newSmartPlaylist);
         newSmartPlaylistField.click();
     }
-    public void createSmartPlaylistFormFillName(String name) {
-        By nameFieldSelector=By.cssSelector("[name='name']");
-        wait.until(ExpectedConditions.elementToBeClickable(nameFieldSelector));
-        WebElement nameField = driver.findElement(nameFieldSelector);
-        nameField.sendKeys(name);
+    @FindBy(css ="[name='name']")
+    private WebElement formCSP_NameField;
+    @FindBy(css="[name='value[]']")
+    private WebElement formCSP_QueryField;
+    @FindBy(xpath = "//*[text()='Save']")
+    private WebElement formCSP_SaveButton;
+    @FindBy(css="[name='model[]']")
+    private WebElement formCSP_ModelDropdown;
+    @FindBy(css="[name='operator[]']")
+    private WebElement formCSP_OperatorDropdown;
+    public void formCSP_FillPlaylistName (String playlistName) throws InterruptedException {
+        WebElement nameField=wait.until(ExpectedConditions.visibilityOf(formCSP_NameField));
+        nameField.sendKeys(playlistName);
     }
-    public void createSmartPlaylistFormDropdown(FirstDropdown item1, SecondDropdown item2){
-        WebElement firstDropdown = driver.findElement(By.cssSelector("[name='model[]']"));
-        firstDropdown.click();
-        By firstXpath = By.xpath("//*[@value='[object Object]'][contains ( text(), '"+item1+"' ) ] ");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(firstXpath));
-        WebElement first = driver.findElement(firstXpath);
-        first.click();
-        WebElement secondDropdown = driver.findElement(By.cssSelector("[name='operator[]']"));
-        secondDropdown.click();
-        By secondXpath = By.xpath("//*[@value='[object Object]'][contains ( text(), '"+item2+"' ) ] ");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(secondXpath));
-        WebElement second= driver.findElement(secondXpath);
-        second.click();
-//        Thread.sleep(3000);
+    public void createSP_OneRule_DefaultValues(String name, String queryName) throws InterruptedException {
+        formCSP_open();
+        formCSP_FillPlaylistName(name);
+        formCSP_QueryField.sendKeys(queryName);
+        formCSP_SaveButton.click();
     }
-    public void createSmartPlaylistFillForm(String name,FirstDropdown item1, SecondDropdown item2, String text) throws InterruptedException {
-        createSmartPlaylistFormFillName(name);
-        createSmartPlaylistFormDropdown(item1,item2);
-        WebElement textField= driver.findElement(By.cssSelector("[name='value[]']"));
-        textField.sendKeys(text);
-        WebElement save=driver.findElement(By.xpath("//*[text()='Save']"));
-        save.click();
-    }
-    public void createSmartPlaylistOneRuleText(String name,FirstDropdown item1, SecondDropdown item2, String text) throws InterruptedException {
-        getCreateSmartPlaylistForm();
-        createSmartPlaylistFillForm(name,item1,item2,text);
+//    public void formCSP_ChooseModelAndOperator( String model, String operator) throws InterruptedException {
+//          formCSP_ModelDropdown.click();
+//          Thread.sleep(1000);
+//          By modelXpath = By.xpath("//*[ text()='"+model+"']");
+//          WebElement modelChose= wait.until(ExpectedConditions.visibilityOfElementLocated(modelXpath));
+//          modelChose.click();
+//          Thread.sleep(1000);
+//          formCSP_OperatorDropdown.click();
+//          By operatorXpath = By.xpath("//*[@value='[object Object]'][contains ( text(), '"+operator+"' ) ] ");
+//          WebElement operatorChose=wait.until(ExpectedConditions.visibilityOfElementLocated(operatorXpath));
+//          operatorChose.click();
+//    }
+    public void createSP_OneRule_CustomValues(String name, String model, String operator, String queryName) throws InterruptedException {
+        formCSP_open();
+        formCSP_FillPlaylistName(name);
+        formCSP_ModelDropdown.click();
+        By modelXpath = By.xpath("//*[ text()='"+model+"']");
+        WebElement modelChose= wait.until(ExpectedConditions.visibilityOfElementLocated(modelXpath));
+        modelChose.click();
+        formCSP_OperatorDropdown.click();
+        By operatorXpath = By.xpath("//*[@value='[object Object]'][contains ( text(), '"+operator+"' ) ] ");
+        WebElement operatorChose=wait.until(ExpectedConditions.visibilityOfElementLocated(operatorXpath));
+        operatorChose.click();
+//        formCSP_ChooseModelAndOperator(model,operator);
+        formCSP_QueryField.sendKeys(queryName);
+        formCSP_SaveButton.click();
     }
 
     public boolean playlistExist(int playlistId, String playlistName){

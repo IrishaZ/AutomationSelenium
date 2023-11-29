@@ -69,6 +69,15 @@ public class Queries extends DbAdapter{
         }
         return songsId;
     }
+    public static Set<String> getSongsIdByCriteria(String query) throws SQLException {
+        Set<String> songsId= new HashSet<>();
+        ResultSet resultSet = DbAdapter.makeQuery(query);
+        while (resultSet.next()) {
+            String songId = resultSet.getString("id");
+            songsId.add(songId);
+        }
+        return songsId;
+    }
 }
 
 

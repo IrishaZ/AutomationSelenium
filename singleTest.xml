@@ -9,7 +9,9 @@
         <classes>
             <class name="pageObjectTests.SmartPlaylistTests">
                 <methods>
+                    <include name="createNewSmartPlaylistWithDefaultNameAndModel"/>
                     <include name="createNewSmartPlaylist"/>
+
                 </methods>
             </class>
         </classes>
