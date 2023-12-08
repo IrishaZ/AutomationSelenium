@@ -4,12 +4,9 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MainPage extends BasePage {
-    private Actions actions;
     private static final Logger log = LogManager.getLogger(MainPage.class);
     public MainPage(WebDriver driver) {
         super(driver);
@@ -18,10 +15,54 @@ public class MainPage extends BasePage {
     private WebElement studentAvatar;
     @FindBy(xpath = "//*[text()='student']")
     private WebElement studentProfile;
+    @FindBy(css="[class='queue']")
+    private WebElement queueTab;
+    @FindBy(css="[class='songs']")
+    private WebElement allSongsTab;
+    @FindBy(css="[class='albums']")
+    private WebElement albumsTab;
+    @FindBy(css="[class='artists']")
+    private WebElement artistTab;
+    @FindBy(css="[class='playlist favorites']")
+    private WebElement playlistFavoritesTab;
+    @FindBy(css="[class='playlist recently-played']")
+    private WebElement recentlyPlayedTab;
+
+
     public ProfilePage openProfilePage() {
         wait.until(ExpectedConditions.elementToBeClickable(studentProfile));
         studentProfile.click();
         return new ProfilePage(driver);
+    }
+    public CurrentQueuePage openCurrentQueuePage() {
+        wait.until(ExpectedConditions.elementToBeClickable(queueTab));
+        queueTab.click();
+        return new CurrentQueuePage(driver);
+    }
+    public AllSongsPage openAllSongPage() {
+        wait.until(ExpectedConditions.elementToBeClickable(allSongsTab));
+        allSongsTab.click();
+        return new AllSongsPage(driver);
+    }
+    public AlbumPage openAlbumPage() {
+        wait.until(ExpectedConditions.elementToBeClickable(allSongsTab));
+        allSongsTab.click();
+        return new AlbumPage(driver);
+    }
+    public ArtistPage openArtistPage() {
+        wait.until(ExpectedConditions.elementToBeClickable(artistTab));
+        artistTab.click();
+        return new ArtistPage(driver);
+    }
+    public FavoritesPage openFavoritesPage() {
+        wait.until(ExpectedConditions.elementToBeClickable(playlistFavoritesTab));
+        playlistFavoritesTab.click();
+        return new FavoritesPage(driver);
+    }
+    public  RecentlyPlayedPage openRecentlyPlayedPage() {
+        wait.until(ExpectedConditions.elementToBeClickable(playlistFavoritesTab));
+        playlistFavoritesTab.click();
+        return new RecentlyPlayedPage(driver);
     }
     public  WebElement getPlusButton(){
         By plusButtonLocator = By.cssSelector("[title='Create a new playlist']");

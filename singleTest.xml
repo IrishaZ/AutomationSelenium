@@ -9,20 +9,18 @@
     <parameter name="browser" value="Chrome"/>
     <test name="Selenium Tests">
         <classes>
-            <class name="pageObjectTests.LoginToApp">
+            <class name="pageObjectTests.LogOut">
                 <methods>
-                    <include name="loginCorrectCredentials"/>
-                    <include name="loginWithInvalidCredentialsFrontEnd"/>
-                    <include name="loginWithInvalidCredentialsBackEnd"/>
-                    <include name="logInAfterUpdatedEmail"/>
-                    <include name="logInWithOldEmail"/>
-                    <include name="logInAfterUpdatedPassword"/>
-                    <include name="logInWithOldPassword"/>
-                </methods>
-            </class>
-            <class name="Test">
-                <methods>
-                    <include name="openProfilePageTest"/>
+<!--                    <include name="logOutHomePage"/>-->
+<!--                    <include name="logOutCurrentQueuePage"/>-->
+<!--                    <include name="logOutAllSongsPage"/>-->
+<!--                    <include name="logOutAlbumPage"/>-->
+<!--                    <include name="logOutArtistPage"/>-->
+<!--                    <include name="logOutFavoritesPage"/>-->
+<!--                    <include name="logOutRecentlyPlayedPage"/>-->
+<!--                    <include name="logOutProfilePage"/>-->
+                    <include name="logOutAfterEmailUpdate"/>
+                    <include name="logOutAfterPasswordUpdate"/>
                 </methods>
             </class>
         </classes>

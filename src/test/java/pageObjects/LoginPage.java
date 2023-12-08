@@ -45,4 +45,13 @@ public class LoginPage extends BasePage {
             return false;
         }
     }
+    public boolean isOpen(){
+        try {
+            wait.until(ExpectedConditions.visibilityOf(loginButton));
+            return true;
+        } catch(TimeoutException err){
+            return false;
+        }
+    }
+
 }

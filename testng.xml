@@ -22,7 +22,7 @@
                     <include name="loginToAppFactory_incorrectCredentials3"/>
                 </methods>
             </class>
-            <class name="pageObjectTests.LoginToApp">
+            <class name="pageObjectTests.LogIn">
                 <methods>
                     <include name="loginToApp_correctCredentials"/>
                     <include name="loginToApp_incorrectCredentials"/>

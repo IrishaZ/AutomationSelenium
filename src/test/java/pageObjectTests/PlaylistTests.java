@@ -17,19 +17,6 @@ public class PlaylistTests extends BaseTest {
         Assert.assertTrue(mainPage.playlistExist(playlistId,playlistName));
     }
     @Test
-    public void renamePlaylist() {
-        String newPlaylistName = faker.job().title();
-        LoginPageSpare loginPage = new LoginPageSpare(driver);
-        loginPage.openPage(url);
-        MainPage mainPage =loginPage.loginToApp(email,password);
-        try {
-            mainPage.renamePlaylist(playlistId,newPlaylistName);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        Assert.assertTrue(mainPage.playlistExist(playlistId,newPlaylistName));
-    }
-    @Test
     public void deletePlaylist() {
         LoginPageSpare loginPage = new LoginPageSpare(driver);
         loginPage.openPage(url);

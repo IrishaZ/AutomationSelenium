@@ -11,38 +11,25 @@ public class ProfilePage extends BasePage{
     public ProfilePage(WebDriver driver){
         super(driver);
     }
+
     @FindBy(css = "[name='current_password']")
     private WebElement currentPasswordField;
-    @FindBy(id = "inputProfileName")
-    private WebElement profileNameField;
-    @FindBy(id = "inputProfileEmail")
-    private WebElement profileEmailField;
+    @FindBy(css = "[name='name']")
+    private WebElement nameField;
+    @FindBy(css = "[name='email']")
+    private WebElement emailField;
     @FindBy(css = "[name='new_password']")
     private WebElement newPasswordField;
-    @FindBy(xpath = "//*[text()='Save']")
+    @FindBy(xpath ="//*[text()='Save']")
     private WebElement saveButton;
-    @FindBy(css = "[data-testid='btn-logout']")
-    private WebElement logOutButton;
-    @FindBy(xpath = "//*[@class='success show']")
-    private WebElement successBanner;
-    public void updatePassword(String password, String newPassword) throws InterruptedException {
-        wait.until(ExpectedConditions.elementToBeClickable(currentPasswordField));
-        enterText(currentPasswordField,password);
-        newPasswordField.sendKeys(newPassword);
+
+    public void passwordUpdate(){
+
+    }
+    public void credentialsUpdate(String currentPassword,String newEmail, String newPassword ) throws InterruptedException {
+        enterText(currentPasswordField,currentPassword);
+        enterText(emailField,newEmail);
+        enterText(newPasswordField,newPassword);
         saveButton.click();
     }
-    public LoginPage logOut(){
-       wait.until(ExpectedConditions.elementToBeClickable(logOutButton));
-       logOutButton.click();
-       return new LoginPage(driver);
-    }
-    public boolean successBannerIsDisplayed(){
-        try {
-            wait.until(ExpectedConditions.visibilityOf(successBanner));
-            return true;
-        } catch(TimeoutException err){
-            return false;
-        }
-    }
-
 }
