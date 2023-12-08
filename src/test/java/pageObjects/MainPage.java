@@ -1,4 +1,6 @@
 package pageObjects;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -8,12 +10,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MainPage extends BasePage {
     private Actions actions;
+    private static final Logger log = LogManager.getLogger(MainPage.class);
     public MainPage(WebDriver driver) {
         super(driver);
-        this.actions = new Actions(driver);
-        AjaxElementLocatorFactory factory=new AjaxElementLocatorFactory(driver,10);
-        //ищет элементы только когда мы его используем
-        PageFactory.initElements(factory,this);//ищет элементы
+    }
+    @FindBy(className = "avatar")
+    private WebElement studentAvatar;
+    @FindBy(xpath = "//*[text()='student']")
+    private WebElement studentProfile;
+    public ProfilePage openProfilePage() {
+        wait.until(ExpectedConditions.elementToBeClickable(studentProfile));
+        studentProfile.click();
+        return new ProfilePage(driver);
     }
     public  WebElement getPlusButton(){
         By plusButtonLocator = By.cssSelector("[title='Create a new playlist']");
@@ -68,18 +76,7 @@ public class MainPage extends BasePage {
         formCSP_QueryField.sendKeys(queryName);
         formCSP_SaveButton.click();
     }
-//    public void formCSP_ChooseModelAndOperator( String model, String operator) throws InterruptedException {
-//          formCSP_ModelDropdown.click();
-//          Thread.sleep(1000);
-//          By modelXpath = By.xpath("//*[ text()='"+model+"']");
-//          WebElement modelChose= wait.until(ExpectedConditions.visibilityOfElementLocated(modelXpath));
-//          modelChose.click();
-//          Thread.sleep(1000);
-//          formCSP_OperatorDropdown.click();
-//          By operatorXpath = By.xpath("//*[@value='[object Object]'][contains ( text(), '"+operator+"' ) ] ");
-//          WebElement operatorChose=wait.until(ExpectedConditions.visibilityOfElementLocated(operatorXpath));
-//          operatorChose.click();
-//    }
+
     public void createSP_OneRule_CustomValues(String name, String model, String operator, String queryName) throws InterruptedException {
         formCSP_open();
         formCSP_FillPlaylistName(name);
@@ -88,11 +85,15 @@ public class MainPage extends BasePage {
         WebElement modelChose= wait.until(ExpectedConditions.visibilityOfElementLocated(modelXpath));
         modelChose.click();
         formCSP_OperatorDropdown.click();
+        log.info("The model chosen "+ model);
         By operatorXpath = By.xpath("//*[@value='[object Object]'][contains ( text(), '"+operator+"' ) ] ");
         WebElement operatorChose=wait.until(ExpectedConditions.visibilityOfElementLocated(operatorXpath));
         operatorChose.click();
+        log.info("The model chosen "+ operator);
 //        formCSP_ChooseModelAndOperator(model,operator);
         formCSP_QueryField.sendKeys(queryName);
+        log.info("The query chosen "+ queryName);
+
         formCSP_SaveButton.click();
     }
 
@@ -155,3 +156,15 @@ public class MainPage extends BasePage {
 
     }
 }
+//    public void formCSP_ChooseModelAndOperator( String model, String operator) throws InterruptedException {
+//          formCSP_ModelDropdown.click();
+//          Thread.sleep(1000);
+//          By modelXpath = By.xpath("//*[ text()='"+model+"']");
+//          WebElement modelChose= wait.until(ExpectedConditions.visibilityOfElementLocated(modelXpath));
+//          modelChose.click();
+//          Thread.sleep(1000);
+//          formCSP_OperatorDropdown.click();
+//          By operatorXpath = By.xpath("//*[@value='[object Object]'][contains ( text(), '"+operator+"' ) ] ");
+//          WebElement operatorChose=wait.until(ExpectedConditions.visibilityOfElementLocated(operatorXpath));
+//          operatorChose.click();
+//    }

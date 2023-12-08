@@ -1,7 +1,7 @@
 package pageObjectTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.LoginPage;
+import pageObjects.LoginPageSpare;
 import pageObjects.MainPage;
 
 public class PlaylistTests extends BaseTest {
@@ -10,7 +10,7 @@ public class PlaylistTests extends BaseTest {
     @Test
     public void createPlaylist() {
         String playlistName = faker.job().title();
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPageSpare loginPage = new LoginPageSpare(driver);
         loginPage.openPage(url);
         MainPage mainPage =loginPage.loginToApp(email,password);
         playlistId = mainPage.addPlaylist(playlistName);
@@ -19,7 +19,7 @@ public class PlaylistTests extends BaseTest {
     @Test
     public void renamePlaylist() {
         String newPlaylistName = faker.job().title();
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPageSpare loginPage = new LoginPageSpare(driver);
         loginPage.openPage(url);
         MainPage mainPage =loginPage.loginToApp(email,password);
         try {
@@ -31,7 +31,7 @@ public class PlaylistTests extends BaseTest {
     }
     @Test
     public void deletePlaylist() {
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPageSpare loginPage = new LoginPageSpare(driver);
         loginPage.openPage(url);
         MainPage mainPage =loginPage.loginToApp(email,password);
         mainPage.deletePlaylist(playlistId);

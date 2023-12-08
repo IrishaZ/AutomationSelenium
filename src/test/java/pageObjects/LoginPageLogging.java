@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPageLogging extends BasePage{
-    private static final Logger log = LogManager.getLogger(LoginPage.class);
+    private static final Logger log = LogManager.getLogger(LoginPageSpare.class);
 
     public LoginPageLogging(WebDriver driver) {
         super(driver);

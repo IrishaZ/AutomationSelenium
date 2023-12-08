@@ -2,40 +2,28 @@ package pageObjectTests;
 import api.Api;
 import helper.Token;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageObjects.LoginPageLogging;
 import pageObjects.LoginPage;
 import pageObjects.MainPage;
-import pageObjects.ProfilePage;
 import testData.TestData;
 
-public class LoginToApp extends BaseTest {
+public class LogInAndLogOutAfterUpdatingCredentials extends BaseTest {
     String wrongPassword="Password";
     String oldPassword;
     String oldEmail;
+    String newPassword;
+
+    @BeforeMethod
+    public void beforeAll(){
+           }
+
+    @AfterMethod
+    public void afterAll(){
+         }
     @Test
-    public void loginCorrectCredentials() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.openPage(url);
-        MainPage mainPage =loginPage.loginToApp(email,password);
-        Assert.assertTrue(mainPage.isOpen());
-    }
-    @Test( dataProvider = "invalidCredentialsFrontEnd", dataProviderClass = TestData.class)
-    public void loginWithInvalidCredentialsFrontEnd(String userEmail, String userPassword) {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.openPage(url);
-        loginPage.loginToApp(userEmail,userPassword);
-        Assert.assertFalse(loginPage.isRedirected());
-    }
-    @Test( dataProvider = "invalidCredentialsBackEnd", dataProviderClass = TestData.class)
-    public void loginWithInvalidCredentialsBackEnd(String userEmail, String userPassword) {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.openPage(url);
-        loginPage.loginToApp(userEmail,userPassword);
-        Assert.assertTrue(loginPage.isError());
-    }
-    @Test
-    public void logInAfterUpdatedEmail() {
+    public void logInAfterUpdatedEmail() throws InterruptedException {
         String newEmail="new"+email;
         oldEmail=newEmail;
         Api.updateUser(url,token,"student",newEmail,password,password);
@@ -50,14 +38,14 @@ public class LoginToApp extends BaseTest {
 
     }
     @Test
-    public void logInWithOldEmail() {
+    public void logInWithOldEmail() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openPage(url);
         loginPage.loginToApp(oldEmail,password);
         Assert.assertFalse(loginPage.isRedirected());
     }
     @Test
-    public void logInAfterUpdatedPassword() {
+    public void logInAfterUpdatedPassword() throws InterruptedException {
         String newPassword="new"+password;
         oldPassword=newPassword;
         Api.updateUser(url,token,"student",email,password,newPassword);
@@ -71,7 +59,7 @@ public class LoginToApp extends BaseTest {
         Api.updateUser(url,newToken,"student",email,newPassword,password);
     }
     @Test
-    public void logInWithOldPassword() {
+    public void logInWithOldPassword() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openPage(url);
         loginPage.loginToApp(oldEmail,password);

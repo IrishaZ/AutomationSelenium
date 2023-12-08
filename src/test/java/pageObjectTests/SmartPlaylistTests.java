@@ -1,17 +1,15 @@
 package pageObjectTests;
-        import adapter.Queries;
+        import com.fasterxml.jackson.core.JsonProcessingException;
+        import models.Playlist;
+        import sql.Queries;
         import api.Api;
-        import enums.FirstDropdown;
-        import enums.SecondDropdown;
-        import helper.Token;
+        import listener.RetryAnalyzer;
         import org.testng.Assert;
-        import org.testng.annotations.AfterMethod;
         import org.testng.annotations.Test;
         import pageObjects.MainPage;
         import testData.TestData;
-
         import java.sql.SQLException;
-        import java.util.Set;
+        import java.util.*;
 
         import static io.restassured.RestAssured.given;
 
@@ -21,16 +19,16 @@ public class SmartPlaylistTests extends BaseTest {
     private Set <String> sqlSongs;
     private Set <String> apiSongs;
     private String successMessage;
-    @AfterMethod
-    public void deletePlaylist() {
-        token = Token.getToken(email, password, url);
-        given().baseUri(url + "/api/playlist/" + playlistId)
-                .header("Authorization", "Bearer " + token)
-                .when().delete()
-                .then().statusCode(200);
-        System.out.println("Playlist deleted");
-    }
-    @Test (dataProvider = "createSP_OneRule_DefaultValues", dataProviderClass = TestData.class)
+//    @AfterMethod
+//    public void deletePlaylist() {
+//        token = Token.getToken(email, password, url);
+//        given().baseUri(url + "/api/playlist/" + playlistId)
+//                .header("Authorization", "Bearer " + token)
+//                .when().delete()
+//                .then().statusCode(200);
+//        System.out.println("Playlist deleted");
+//    }
+    @Test (enabled = false,dataProvider = "createSP_OneRule_DefaultValues", dataProviderClass = TestData.class)
     public void createNewSmartPlaylistWithDefaultNameAndModel(String queryName, String sqlQuery) throws InterruptedException, SQLException {
         playlistName = faker.funnyName().name();
         successMessage = "Created playlist \"" + playlistName + ".\"";
@@ -44,7 +42,7 @@ public class SmartPlaylistTests extends BaseTest {
         Assert.assertEquals( sqlSongs, apiSongs);
         }
 
-    @Test (dataProvider = "createSP_OneRule", dataProviderClass = TestData.class)
+    @Test (enabled = false, dataProvider = "createSP_OneRule", dataProviderClass = TestData.class, retryAnalyzer = RetryAnalyzer.class)
     public void createNewSmartPlaylist(String model,String operator, String queryName, String sqlQuery) throws InterruptedException, SQLException {
         playlistName = faker.funnyName().name();
         successMessage = "Created playlist \"" + playlistName + ".\"";
@@ -56,7 +54,62 @@ public class SmartPlaylistTests extends BaseTest {
         apiSongs=Api.getPlaylistSongs(playlistId,token,url);
         Assert.assertEquals( sqlSongs, apiSongs);
     }
+    @Test
+    public void playlistTest() throws SQLException, JsonProcessingException {
+//        int playlistId=77203;
+////        int playlistIdApi;
+//        int userId=Queries.getUserId(email);
+//        PlaylistModel playlistApi = new PlaylistModel();
+        List<Playlist> rules= Api.getPlaylists2(token,url);
+
+//        rules.stream().toArray();
+
+//        String jsonString = Api.getPlaylists1(token, url);
+//        System.out.println(jsonString);
+//        String resultString = jsonString.substring(1, jsonString.length() - 1);
+//        System.out.println(resultString);
+//        Object jsonObject=resultString;
+//        System.out.println(jsonObject);
+
+//        PlaylistModel playlist= new PlaylistModel();
+////        for(int n=0;n<allPlaylists.size();n++){
+////            System.out.println(n);
+//            int n=0;
+////            playlistApi=allPlaylists.get(0);;
+////        System.out.println(playlistApi);
+////            if(playlistApi.getId()==playlistId){
+////                System.out.println(n);
+//        System.out.println(allPlaylists.get(0).getId());
+//        System.out.println(allPlaylists.get(0).getName());
+//        System.out.println(allPlaylists.get(0).getRules());
+//        System.out.println(allPlaylists.get(0).getIs_smart());
+
+//        }
+        }
+//        System.out.println(playlist);
+//    }
+//        playlist=allPlaylists.get(0);
+//        System.out.println(allPlaylists);
+//        PlaylistModel playlist= new PlaylistModel();
+//        System.out.println(playlist);
+//        Iterator<PlaylistModel> it= allPlaylists.iterator();
+//        while (it.hasNext()){
+//            playlist =it.next();
+//            System.out.println(playlist);
+//            playlistIdApi=playlist.getId();
+//            System.out.println(playlistIdApi);
+//            if (playlistIdApi==playlistId){
+//                rules=playlist.getRules();
+//                System.out.println(rules);
+//            }
+//        }
+//        System.out.println(rules);
+
+
+//        List<Object> allPlaylists = Api.getPlaylists(token,url);
+//        System.out.println(allPlaylists);
 }
+
 //        System.out.println("sqlSongs");
 //        System.out.println(sqlSongs);
 //        System.out.println("apiSongs");

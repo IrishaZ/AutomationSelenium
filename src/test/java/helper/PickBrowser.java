@@ -28,7 +28,7 @@ public class PickBrowser {
 //                WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
 //                options.addArguments("--headless");
-                options.addArguments("window-size=1400,1000");
+                options.addArguments("window-size=1500,1200");
                 return new ChromeDriver(options);
             }
         }

@@ -20,8 +20,7 @@ public class Listeners implements ITestListener {
         log.error("Test "+result.getName()+" Failed!!!!!!!!!");
     }
 
-    public void onTestSkipped(ITestResult result) {
-    }
+    public void onTestSkipped(ITestResult result) {log.error("Test "+result.getName()+" Skipped");}
 
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
     }

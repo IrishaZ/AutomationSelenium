@@ -1,6 +1,6 @@
 package pageObjectTests;
 
-import adapter.Queries;
+import sql.Queries;
 import helper.Token;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

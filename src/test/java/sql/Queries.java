@@ -1,20 +1,17 @@
-package adapter;
+package sql;
 
 
 import models.Song;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Queries extends DbAdapter{
     public Queries() {
         super();
     }
 
-    public static List<Song> getSons() throws SQLException {
+    public static List<Song> getAllSongs() throws SQLException {
         List<Song> songs = new ArrayList<>();
         String query = "SELECT * from songs s";
         ResultSet resultSet = DbAdapter.makeQuery(query);
@@ -28,7 +25,7 @@ public class Queries extends DbAdapter{
         }
         return songs;
     }
-    public static List<String> getSongsInPlaylist(int playlistId) throws SQLException {
+    public static List<String> getSongsTitlesInPlaylist(int playlistId) throws SQLException {
         List<String> songs = new ArrayList<>();
         String query = "SELECT playlist_id, s.title FROM playlist_song ps\n" +
                 "JOIN songs s \n" +
@@ -40,6 +37,15 @@ public class Queries extends DbAdapter{
             songs.add(songTitle);
         }
         return songs;
+    }
+    public static Set<String> getSongsIdByCriteria(String query) throws SQLException {
+        Set<String> songsId= new HashSet<>();
+        ResultSet resultSet = DbAdapter.makeQuery(query);
+        while (resultSet.next()) {
+            String songId = resultSet.getString("id");
+            songsId.add(songId);
+        }
+        return songsId;
     }
     public static String getPlaylistNameById(int playlistId) throws SQLException {
         String playlistName = null;
@@ -59,26 +65,34 @@ public class Queries extends DbAdapter{
         }
         return playlistId;
     }
-    public static Set<String> getSongsIdByAlbumContains(String name) throws SQLException {
-        Set<String> songsId= new HashSet<>();
-        String query = "SELECT s.id FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE '%"+ name+"%'";
+    public static int getUserId(String email) throws SQLException {
+        int userId=0;
+        String query ="SELECT id from dbkoel.users u where email='"+email+"'";
         ResultSet resultSet = DbAdapter.makeQuery(query);
         while (resultSet.next()) {
-            String songId = resultSet.getString("id");
-            songsId.add(songId);
+            userId = resultSet.getInt("id");
         }
-        return songsId;
+        return userId;
     }
-    public static Set<String> getSongsIdByCriteria(String query) throws SQLException {
-        Set<String> songsId= new HashSet<>();
+    public static List<Integer> getUserPlaylists(int userId) throws SQLException {
+        List<Integer> playlistsId=new ArrayList<>();
+        String query ="SELECT * FROM dbkoel.playlists p WHERE user_id ='"+userId+"'";
         ResultSet resultSet = DbAdapter.makeQuery(query);
         while (resultSet.next()) {
-            String songId = resultSet.getString("id");
-            songsId.add(songId);
+            playlistsId.add(resultSet.getInt("id"));
         }
-        return songsId;
+        return playlistsId;
     }
 }
-
+//    public static Set<String> getSongsIdByAlbumContains(String name) throws SQLException {
+//        Set<String> songsId= new HashSet<>();
+//        String query = "SELECT s.id FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE '%"+ name+"%'";
+//        ResultSet resultSet = DbAdapter.makeQuery(query);
+//        while (resultSet.next()) {
+//            String songId = resultSet.getString("id");
+//            songsId.add(songId);
+//        }
+//        return songsId;
+//    }
 
 

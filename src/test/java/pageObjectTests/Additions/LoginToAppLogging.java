@@ -2,7 +2,7 @@ package pageObjectTests.Additions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjectTests.BaseTest;
-import pageObjects.LoginPage;
+import pageObjects.LoginPageSpare;
 import pageObjects.LoginPageLogging;
 import pageObjects.MainPage;
 
@@ -17,7 +17,7 @@ public class LoginToAppLogging extends BaseTest {
     }
     @Test
     public void loginWithWrongPassword() {
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPageSpare loginPage = new LoginPageSpare(driver);
         loginPage.openPage(url);
         loginPage.loginToApp(email,wrongPassword);
         Assert.assertTrue(loginPage.isError());
