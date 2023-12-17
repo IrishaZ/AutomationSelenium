@@ -2,6 +2,7 @@ package sql;
 
 
 import models.Song;
+import models.SongInfo;
 
 import java.sql.*;
 import java.util.*;
@@ -82,6 +83,23 @@ public class Queries extends DbAdapter{
             playlistsId.add(resultSet.getInt("id"));
         }
         return playlistsId;
+    }
+    public static SongInfo getSongInfo(String songTitle) throws SQLException {
+        SongInfo songInfo=new SongInfo();
+        String query ="SELECT s2.id, s2.title, s2.lyrics, a.name as album, a2.name as artist \n" +
+                "FROM dbkoel.songs s2 \n" +
+                "JOIN albums a on s2.album_id =a.id \n" +
+                "JOIN  artists a2 ON s2.artist_id =a2.id\n" +
+                "WHERE s2.title ='"+songTitle+"'";
+        ResultSet resultSet = DbAdapter.makeQuery(query);
+        while (resultSet.next()) {
+            songInfo.setSongId(resultSet.getString("id"));
+            songInfo.setSongTitle(resultSet.getString("title"));
+            songInfo.setLyrics(resultSet.getString("lyrics"));
+            songInfo.setAlbum(resultSet.getString("album"));
+            songInfo.setArtist(resultSet.getString("artist"));
+        }
+        return songInfo;
     }
 }
 //    public static Set<String> getSongsIdByAlbumContains(String name) throws SQLException {

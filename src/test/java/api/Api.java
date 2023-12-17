@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import models.Playlist;
+import models.Song;
 import models.UserProfile;
 import sql.Queries;
 
@@ -14,7 +15,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static io.restassured.RestAssured.UNDEFINED_PORT;
 import static io.restassured.RestAssured.given;
 
 public class Api {
@@ -60,6 +60,21 @@ public class Api {
                 .statusCode(200)
                 .extract().response();
         response.prettyPrint();
+    }
+    public static Song getSongInfo(String url, String token, String songId){
+        Response response =
+                given()
+                        .baseUri(url+"/api/song"+songId+"/info")
+                        .header("Accept","application/json")
+                        .header("Content-type","application/json")
+                        .header("Authorization", "Bearer " + token)
+                        .when().get()
+                        .then()
+                        .statusCode(200)
+                        .extract().response();
+        JsonPath json = response.jsonPath();
+        Song song=json.getObject("$", Song.class);
+        return song;
     }
 
 //    ------------------

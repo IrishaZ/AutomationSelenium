@@ -31,18 +31,17 @@
                     <include name="logOutAfterPasswordUpdate"/>
                 </methods>
             </class>
-            <class name="pageObjectTests.PlaylistTests">
+            <class name="pageObjectTests.InfoPanel">
                 <methods>
-                    <include name="createPlaylist"/>
-                    <include name="deletePlaylist"/>
+                    <include name="albumInfoIsDisplayedCorrectly"/>
+                    <include name="artistInfoIsDisplayedCorrectly"/>
+                    <include name="lyricInfoIsDisplayedCorrectly"/>
+                    <include name="infoButtonClosesInfoPanel"/>
+                    <include name="infoButtonOpensInfoPanel"/>
+                    <include name="shuffleButtonAlbumTabShuffleAlbumSongs"/>
+                    <include name="shuffleButtonArtistTabShuffleAlbumSongs"/>
                 </methods>
             </class>
-            <class name="pageObjectTests.PlaylistTestsHybrid">
-                <methods>
-                    <include name="renamePlaylistHybrid"/>
-                </methods>
-            </class>
-
         </classes>
     </test>
 </suite>

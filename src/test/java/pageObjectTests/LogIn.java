@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.LoginPage;
 import pageObjects.MainPage;
-import testData.TestData;
+import helper.TestData;
 
 public class LogIn extends BaseTest {
     String wrongPassword="Password";
@@ -23,14 +23,14 @@ public class LogIn extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openPage(url);
         loginPage.loginToApp(userEmail,userPassword);
-        Assert.assertFalse(loginPage.isRedirected());
+        Assert.assertFalse(loginPage.pageIsRedirected());
     }
     @Test( dataProvider = "invalidCredentialsBackEnd", dataProviderClass = TestData.class)
     public void loginWithInvalidCredentialsBackEnd(String userEmail, String userPassword) {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openPage(url);
         loginPage.loginToApp(userEmail,userPassword);
-        Assert.assertTrue(loginPage.isError());
+        Assert.assertTrue(loginPage.errorMessageIsDisplayed());
     }
     @Test
     public void logInAfterUpdatedEmail() {
@@ -52,7 +52,7 @@ public class LogIn extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openPage(url);
         loginPage.loginToApp(oldEmail,password);
-        Assert.assertFalse(loginPage.isRedirected());
+        Assert.assertFalse(loginPage.pageIsRedirected());
     }
     @Test
     public void logInAfterUpdatedPassword() {
@@ -73,7 +73,7 @@ public class LogIn extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openPage(url);
         loginPage.loginToApp(oldEmail,password);
-        Assert.assertFalse(loginPage.isRedirected());
+        Assert.assertFalse(loginPage.pageIsRedirected());
     }
 
 }

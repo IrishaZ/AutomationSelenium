@@ -23,9 +23,6 @@ public class ProfilePage extends BasePage{
     @FindBy(xpath ="//*[text()='Save']")
     private WebElement saveButton;
 
-    public void passwordUpdate(){
-
-    }
     public void credentialsUpdate(String currentPassword,String newEmail, String newPassword ) throws InterruptedException {
         enterText(currentPasswordField,currentPassword);
         enterText(emailField,newEmail);

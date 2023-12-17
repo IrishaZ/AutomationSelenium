@@ -27,6 +27,7 @@ public class BaseTest {
     protected Faker faker;
     protected String token;
     protected WebDriverWait wait;
+    protected JavascriptExecutor js;
     @Parameters({"url","email","password","browser"})
     @BeforeMethod
     public void beforeAll(String url, String email, String password,String browser){
@@ -37,6 +38,7 @@ public class BaseTest {
         token = Token.getToken(email,password,url);
         faker = new Faker();
         wait = new WebDriverWait(driver, Duration.ofMillis(200),Duration.ofMillis(1000));
+        js=(JavascriptExecutor) driver;
     }
     @AfterMethod
     public void afterAll() throws InterruptedException {
@@ -58,5 +60,7 @@ public class BaseTest {
         logOutButton.click();
         return new LoginPage(driver);
     }
+
+
 
 }

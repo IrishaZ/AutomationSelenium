@@ -2,7 +2,6 @@ package pageObjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -28,7 +27,6 @@ public class MainPage extends BasePage {
     @FindBy(css="[class='playlist recently-played']")
     private WebElement recentlyPlayedTab;
 
-
     public ProfilePage openProfilePage() {
         wait.until(ExpectedConditions.elementToBeClickable(studentProfile));
         studentProfile.click();
@@ -45,8 +43,8 @@ public class MainPage extends BasePage {
         return new AllSongsPage(driver);
     }
     public AlbumPage openAlbumPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(allSongsTab));
-        allSongsTab.click();
+        wait.until(ExpectedConditions.elementToBeClickable(albumsTab));
+        albumsTab.click();
         return new AlbumPage(driver);
     }
     public ArtistPage openArtistPage() {
@@ -64,6 +62,14 @@ public class MainPage extends BasePage {
         playlistFavoritesTab.click();
         return new RecentlyPlayedPage(driver);
     }
+    public void playSong(String songTitle){
+        By songLocator = By.xpath("//*[@class='details'][contains ( text(),'"+songTitle+"')]");
+        WebElement song=driver.findElement(songLocator);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", song);
+        actions.doubleClick(song).perform();
+    }
+
+
     public  WebElement getPlusButton(){
         By plusButtonLocator = By.cssSelector("[title='Create a new playlist']");
         wait.until(ExpectedConditions.elementToBeClickable(plusButtonLocator));
@@ -107,37 +113,6 @@ public class MainPage extends BasePage {
     private WebElement formCSP_ModelDropdown;
     @FindBy(css="[name='operator[]']")
     private WebElement formCSP_OperatorDropdown;
-    public void formCSP_FillPlaylistName (String playlistName) throws InterruptedException {
-        WebElement nameField=wait.until(ExpectedConditions.visibilityOf(formCSP_NameField));
-        nameField.sendKeys(playlistName);
-    }
-    public void createSP_OneRule_DefaultValues(String name, String queryName) throws InterruptedException {
-        formCSP_open();
-        formCSP_FillPlaylistName(name);
-        formCSP_QueryField.sendKeys(queryName);
-        formCSP_SaveButton.click();
-    }
-
-    public void createSP_OneRule_CustomValues(String name, String model, String operator, String queryName) throws InterruptedException {
-        formCSP_open();
-        formCSP_FillPlaylistName(name);
-        formCSP_ModelDropdown.click();
-        By modelXpath = By.xpath("//*[ text()='"+model+"']");
-        WebElement modelChose= wait.until(ExpectedConditions.visibilityOfElementLocated(modelXpath));
-        modelChose.click();
-        formCSP_OperatorDropdown.click();
-        log.info("The model chosen "+ model);
-        By operatorXpath = By.xpath("//*[@value='[object Object]'][contains ( text(), '"+operator+"' ) ] ");
-        WebElement operatorChose=wait.until(ExpectedConditions.visibilityOfElementLocated(operatorXpath));
-        operatorChose.click();
-        log.info("The model chosen "+ operator);
-//        formCSP_ChooseModelAndOperator(model,operator);
-        formCSP_QueryField.sendKeys(queryName);
-        log.info("The query chosen "+ queryName);
-
-        formCSP_SaveButton.click();
-    }
-
     public boolean playlistExist(int playlistId, String playlistName){
         WebElement playlist;
         try {
@@ -195,6 +170,34 @@ public class MainPage extends BasePage {
 //        By successLocator = By.xpath("//*[@class='success show']");
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(successLocator));
 
+    }
+    public void createSP_OneRule_DefaultValues(String name, String queryName) throws InterruptedException {
+        formCSP_open();
+        formCSP_FillPlaylistName(name);
+        formCSP_QueryField.sendKeys(queryName);
+        formCSP_SaveButton.click();
+    }
+    public void createSP_OneRule_CustomValues(String name, String model, String operator, String queryName) throws InterruptedException {
+        formCSP_open();
+        formCSP_FillPlaylistName(name);
+        formCSP_ModelDropdown.click();
+        By modelXpath = By.xpath("//*[ text()='"+model+"']");
+        WebElement modelChose= wait.until(ExpectedConditions.visibilityOfElementLocated(modelXpath));
+        modelChose.click();
+        formCSP_OperatorDropdown.click();
+        log.info("The model chosen "+ model);
+        By operatorXpath = By.xpath("//*[@value='[object Object]'][contains ( text(), '"+operator+"' ) ] ");
+        WebElement operatorChose=wait.until(ExpectedConditions.visibilityOfElementLocated(operatorXpath));
+        operatorChose.click();
+        log.info("The model chosen "+ operator);
+//        formCSP_ChooseModelAndOperator(model,operator);
+        formCSP_QueryField.sendKeys(queryName);
+        log.info("The query chosen "+ queryName);
+        formCSP_SaveButton.click();
+    }
+    public void formCSP_FillPlaylistName (String playlistName) throws InterruptedException {
+        WebElement nameField=wait.until(ExpectedConditions.visibilityOf(formCSP_NameField));
+        nameField.sendKeys(playlistName);
     }
 }
 //    public void formCSP_ChooseModelAndOperator( String model, String operator) throws InterruptedException {

@@ -1,7 +1,7 @@
 package pageObjectTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.LoginPageSpare;
+import pageObjects.Draft.LoginPageSpare;
 import pageObjects.MainPage;
 
 public class PlaylistTests extends BaseTest {

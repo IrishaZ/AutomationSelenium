@@ -3,47 +3,55 @@
     <listeners>
         <listener class-name="listener.Listeners"/>
     </listeners>
-    <parameter name="url" value="https://bbb.testpro.io"/>
-    <parameter name="username" value="sim@email.com"/>
-    <parameter name="password" value="te$t$tudent"/>
+    <parameter name="url" value="https://qa.koel.app"/>
+    <parameter name="email" value="irina.zhukova@testpro.io"/>
+    <parameter name="password" value="te$t$tudent84"/>
     <parameter name="browser" value="Chrome"/>
     <test name="Selenium Tests">
         <classes>
-            <class name="pageObjectTests.LoginTestFactory">
-                <methods>
-                    <include name="flakyTest"/>
-                    <include name="loginToAppFactory_correctCredentials"/>
-                    <include name="loginToAppFactory_incorrectCredentials"/>
-                    <include name="loginToAppFactory_correctCredentials1"/>
-                    <include name="loginToAppFactory_incorrectCredentials1"/>
-                    <include name="loginToAppFactory_correctCredentials2"/>
-                    <include name="loginToAppFactory_incorrectCredentials2"/>
-                    <include name="loginToAppFactory_correctCredentials3"/>
-                    <include name="loginToAppFactory_incorrectCredentials3"/>
-                </methods>
-            </class>
             <class name="pageObjectTests.LogIn">
                 <methods>
-                    <include name="loginToApp_correctCredentials"/>
-                    <include name="loginToApp_incorrectCredentials"/>
-                    <include name="loginToApp_correctCredentials1"/>
-                    <include name="loginToApp_incorrectCredentials1"/>
-                    <include name="loginToApp_correctCredentials2"/>
-                    <include name="loginToApp_incorrectCredentials2"/>
-                    <include name="loginToApp_correctCredentials3"/>
-                    <include name="loginToApp_incorrectCredentials3"/>
+                    <include name="loginCorrectCredentials"/>
+                    <include name="loginWithInvalidCredentialsFrontEnd"/>
+                    <include name="loginWithInvalidCredentialsBackEnd"/>
+                    <include name="logInAfterUpdatedEmail"/>
+                    <include name="logInWithOldEmail"/>
+                    <include name="logInAfterUpdatedPassword"/>
+                    <include name="logInWithOldPassword"/>
                 </methods>
             </class>
-            <class name="pageObjectTests.PlaylistTest">
+            <class name="pageObjectTests.LogOut">
+                <methods>
+                    <include name="logOutHomePage"/>
+                    <include name="logOutCurrentQueuePage"/>
+                    <include name="logOutAllSongsPage"/>
+                    <include name="logOutAlbumPage"/>
+                    <include name="logOutArtistPage"/>
+                    <include name="logOutFavoritesPage"/>
+                    <include name="logOutRecentlyPlayedPage"/>
+                    <include name="logOutProfilePage"/>
+                    <include name="logOutAfterEmailUpdate"/>
+                    <include name="logOutAfterPasswordUpdate"/>
+                </methods>
+            </class>
+            <class name="pageObjectTests.InfoPanel">
+                <methods>
+                    <include name="albumInfoIsDisplayedCorrectly"/>
+                    <include name="artistInfoIsDisplayedCorrectly"/>
+                    <include name="lyricInfoIsDisplayedCorrectly"/>
+                    <include name="infoButtonClosesInfoPanel"/>
+                    <include name="infoButtonOpensInfoPanel"/>
+                </methods>
+            </class>
+            <class name="pageObjectTests.PlaylistTests">
                 <methods>
                     <include name="createPlaylist"/>
-                    <include name="renamePlaylist"/>
-                    <include name="createPlaylist1"/>
-                    <include name="renamePlaylist1"/>
-                    <include name="createPlaylist2"/>
-                    <include name="renamePlaylist2"/>
-                    <include name="createPlaylist3"/>
-                    <exclude name="renamePlaylist3"/>
+                    <include name="deletePlaylist"/>
+                </methods>
+            </class>
+            <class name="pageObjectTests.PlaylistTestsHybrid">
+                <methods>
+                    <include name="renamePlaylistHybrid"/>
                 </methods>
             </class>
         </classes>

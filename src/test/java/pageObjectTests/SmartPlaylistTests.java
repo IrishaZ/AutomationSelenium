@@ -7,7 +7,7 @@ package pageObjectTests;
         import org.testng.Assert;
         import org.testng.annotations.Test;
         import pageObjects.MainPage;
-        import testData.TestData;
+        import helper.TestData;
         import java.sql.SQLException;
         import java.util.*;
 

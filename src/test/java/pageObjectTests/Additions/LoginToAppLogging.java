@@ -2,8 +2,8 @@ package pageObjectTests.Additions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjectTests.BaseTest;
-import pageObjects.LoginPageSpare;
-import pageObjects.LoginPageLogging;
+import pageObjects.Draft.LoginPageSpare;
+import pageObjects.Draft.LoginPageLogging;
 import pageObjects.MainPage;
 
 public class LoginToAppLogging extends BaseTest {

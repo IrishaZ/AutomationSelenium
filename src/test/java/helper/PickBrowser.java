@@ -15,7 +15,7 @@ public class PickBrowser {
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions options = new FirefoxOptions();
 //                options.addArguments("--headless");
-                options.addArguments("--width=1000");
+                options.addArguments("--width=1200");
                 options.addArguments("--height=700");
                 return new FirefoxDriver(options);
             }
@@ -28,7 +28,7 @@ public class PickBrowser {
 //                WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
 //                options.addArguments("--headless");
-                options.addArguments("window-size=1500,1200");
+                options.addArguments("window-size=1200,800");
                 return new ChromeDriver(options);
             }
         }

@@ -7,7 +7,7 @@
             </run>
         </groups>
         <classes>
-            <class name="SimpleTest" />
+            <class name="pageObjectTests.Additions.SimpleTest" />
         </classes>
     </test>
 
@@ -18,7 +18,7 @@
             </run>
         </groups>
         <classes>
-            <class name="SimpleTest" />
+            <class name="pageObjectTests.Additions.SimpleTest" />
         </classes>
     </test>
 </suite>

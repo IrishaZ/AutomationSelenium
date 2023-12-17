@@ -1,10 +1,12 @@
-package pageObjects;
+package pageObjects.Draft;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import pageObjects.BasePage;
+import pageObjects.MainPage;
 
 
-public class LoginPageSpare extends BasePage{
+public class LoginPageSpare extends BasePage {
     public LoginPageSpare(WebDriver driver) {
         super(driver);
     }

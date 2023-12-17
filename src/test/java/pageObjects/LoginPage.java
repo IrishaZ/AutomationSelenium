@@ -1,11 +1,8 @@
 package pageObjects;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 public class LoginPage extends BasePage {
-//    private WebDriver driver;
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -29,14 +26,14 @@ public class LoginPage extends BasePage {
     }
     public void openPage(String url){driver.get(url);
     }
-    public boolean isError() {
+    public boolean errorMessageIsDisplayed() {
         try {
             return errorFrame.isDisplayed();
         } catch (NoSuchElementException err){
             return false;
         }
     }
-    public boolean isRedirected(){
+    public boolean pageIsRedirected(){
         By homeIconLocator = By.cssSelector("[class = 'home active']");
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(homeIconLocator));
@@ -45,7 +42,7 @@ public class LoginPage extends BasePage {
             return false;
         }
     }
-    public boolean isOpen(){
+    public boolean pageIsOpened(){
         try {
             wait.until(ExpectedConditions.visibilityOf(loginButton));
             return true;
@@ -53,5 +50,4 @@ public class LoginPage extends BasePage {
             return false;
         }
     }
-
 }

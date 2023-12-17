@@ -9,20 +9,13 @@
     <parameter name="browser" value="Chrome"/>
     <test name="Selenium Tests">
         <classes>
-            <class name="pageObjectTests.LogOut">
+            <class name="pageObjectTests.InfoPanel">
                 <methods>
-<!--                    <include name="logOutHomePage"/>-->
-<!--                    <include name="logOutCurrentQueuePage"/>-->
-<!--                    <include name="logOutAllSongsPage"/>-->
-<!--                    <include name="logOutAlbumPage"/>-->
-<!--                    <include name="logOutArtistPage"/>-->
-<!--                    <include name="logOutFavoritesPage"/>-->
-<!--                    <include name="logOutRecentlyPlayedPage"/>-->
-<!--                    <include name="logOutProfilePage"/>-->
-                    <include name="logOutAfterEmailUpdate"/>
-                    <include name="logOutAfterPasswordUpdate"/>
+                    <include name="shuffleButtonAlbumTabShuffleAlbumSongs"/>
+                    <include name="shuffleButtonArtistTabShuffleAlbumSongs"/>
                 </methods>
             </class>
+
         </classes>
     </test>
 </suite>

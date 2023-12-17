@@ -20,7 +20,7 @@ public class LoginPageFactory extends BaseTest {
         LoginPage loginTestFactory = new LoginPage(driver);
         loginTestFactory.openPage(url);
         loginTestFactory.loginToApp(email,"wrongPassword");
-        Assert.assertTrue(loginTestFactory.isError());
+        Assert.assertTrue(loginTestFactory.errorMessageIsDisplayed());
     }
 
 
