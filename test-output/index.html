@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-Master_Suite" class="navigator-link">
+              <span class="suite-name border-failed">Master Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-Master_Suite" class="navigator-link ">
+                    <span>C:\Users\pivov\Documents\TEST PRO\AutomationSeleniumGit\singleTest.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-Master_Suite" class="navigator-link ">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-Master_Suite" class="navigator-link ">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-Master_Suite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-Master_Suite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-Master_Suite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-Master_Suite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">11 methods, 1 failed,   10 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Master_Suite" class="hide-methods failed suite-Master_Suite"> (hide)</a> <!-- hide-methods failed suite-Master_Suite -->
+                      <a href="#" panel-name="suite-Master_Suite" class="show-methods failed suite-Master_Suite"> (show)</a> <!-- show-methods failed suite-Master_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Master_Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylistWithDefaultNameAndModel(Pluto, SELECT * FROM dbkoel.songs s WHERE s.title=&quot;Pluto&quot;)">createNewSmartPlaylistWithDefaultNameAndModel(Pluto, SELECT * FROM dbkoel.songs s WHERE s.title="Pluto")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Master_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Master_Suite" class="hide-methods passed suite-Master_Suite"> (hide)</a> <!-- hide-methods passed suite-Master_Suite -->
+                      <a href="#" panel-name="suite-Master_Suite" class="show-methods passed suite-Master_Suite"> (show)</a> <!-- show-methods passed suite-Master_Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Master_Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylist(Title, does not contain, pluto, SELECT * from dbkoel.songs s WHERE s.title NOT LIKE(&quot;%pluto%&quot;))">createNewSmartPlaylist(Title, does not contain, pluto, SELECT * from dbkoel.songs s WHERE s.title NOT LIKE("%pluto%"))</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylist(Album, contains, Unknown, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE ...)">createNewSmartPlaylist(Album, contains, Unknown, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE ...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylist(Album, does not contain, Album, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name...)">createNewSmartPlaylist(Album, does not contain, Album, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylist(Title, ends with, t, SELECT * from dbkoel.songs s WHERE s.title LIKE (&quot;%t&quot;))">createNewSmartPlaylist(Title, ends with, t, SELECT * from dbkoel.songs s WHERE s.title LIKE ("%t"))</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylist(Album, is not, Unknown Album, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name!=...)">createNewSmartPlaylist(Album, is not, Unknown Album, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name!=...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylist(Album, ends with, m, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE(&quot;%m&quot;))">createNewSmartPlaylist(Album, ends with, m, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE("%m"))</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylist(Title, begins with, t, SELECT * from dbkoel.songs s WHERE s.title LIKE (&quot;t%&quot;))">createNewSmartPlaylist(Title, begins with, t, SELECT * from dbkoel.songs s WHERE s.title LIKE ("t%"))</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylist(Title, contains, Take, SELECT * from dbkoel.songs s WHERE s.title LIKE &quot;%Take%&quot;)">createNewSmartPlaylist(Title, contains, Take, SELECT * from dbkoel.songs s WHERE s.title LIKE "%Take%")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylist(Album, begins with, m, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE(&quot;m%...)">createNewSmartPlaylist(Album, begins with, m, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE("m%...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Master_Suite" title="pageObjectTests.SmartPlaylistTests" class="method navigator-link" hash-for-method="createNewSmartPlaylist(Title, is not, Reactor, SELECT * from dbkoel.songs s WHERE s.title!=&quot;Reactor&quot;)">createNewSmartPlaylist(Title, is not, Reactor, SELECT * from dbkoel.songs s WHERE s.title!="Reactor")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Master_Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Master_Suite" class="panel Master_Suite">
+          <div class="suite-Master_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">pageObjectTests.SmartPlaylistTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylistWithDefaultNameAndModel(Pluto, SELECT * FROM dbkoel.songs s WHERE s.title=&quot;Pluto&quot;)">
+                  </a> <!-- createNewSmartPlaylistWithDefaultNameAndModel(Pluto, SELECT * FROM dbkoel.songs s WHERE s.title="Pluto") -->
+                  <span class="method-name">createNewSmartPlaylistWithDefaultNameAndModel</span>
+                  <span class="parameters">(Pluto,SELECT * FROM dbkoel.songs s WHERE s.title="Pluto")</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@class=&apos;success show&apos;] (tried for 0 second(s) with 1000 milliseconds interval)
+Build info: version: &apos;4.15.0&apos;, revision: &apos;1d14b5521b&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.160, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\pivov\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62389}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62389/devtoo..., se:cdpVersion: 119.0.6045.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4bfb50c3d7eaad302ceedb392c348bcd
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+	at pageObjects.MainPage.getSuccessBanner(MainPage.java:40)
+	at pageObjectTests.SmartPlaylistTests.createNewSmartPlaylistWithDefaultNameAndModel(SmartPlaylistTests.java:37)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Master_Suite-class-failed -->
+          <div class="suite-Master_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">pageObjectTests.SmartPlaylistTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylist(Title, does not contain, pluto, SELECT * from dbkoel.songs s WHERE s.title NOT LIKE(&quot;%pluto%&quot;))">
+                  </a> <!-- createNewSmartPlaylist(Title, does not contain, pluto, SELECT * from dbkoel.songs s WHERE s.title NOT LIKE("%pluto%")) -->
+                  <span class="method-name">createNewSmartPlaylist</span>
+                  <span class="parameters">(Title,does not contain,pluto,SELECT * from dbkoel.songs s WHERE s.title NOT LIKE("%pluto%"))</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylist(Album, contains, Unknown, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE ...)">
+                  </a> <!-- createNewSmartPlaylist(Album, contains, Unknown, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE ...) -->
+                  <span class="method-name">createNewSmartPlaylist</span>
+                  <span class="parameters">(Album,contains,Unknown,SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE "%Unknown%")</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylist(Album, does not contain, Album, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name...)">
+                  </a> <!-- createNewSmartPlaylist(Album, does not contain, Album, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name...) -->
+                  <span class="method-name">createNewSmartPlaylist</span>
+                  <span class="parameters">(Album,does not contain,Album,SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name NOT LIKE("%Album%"))</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylist(Title, ends with, t, SELECT * from dbkoel.songs s WHERE s.title LIKE (&quot;%t&quot;))">
+                  </a> <!-- createNewSmartPlaylist(Title, ends with, t, SELECT * from dbkoel.songs s WHERE s.title LIKE ("%t")) -->
+                  <span class="method-name">createNewSmartPlaylist</span>
+                  <span class="parameters">(Title,ends with,t,SELECT * from dbkoel.songs s WHERE s.title LIKE ("%t"))</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylist(Album, is not, Unknown Album, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name!=...)">
+                  </a> <!-- createNewSmartPlaylist(Album, is not, Unknown Album, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name!=...) -->
+                  <span class="method-name">createNewSmartPlaylist</span>
+                  <span class="parameters">(Album,is not,Unknown Album,SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name!="Unknown Album")</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylist(Album, ends with, m, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE(&quot;%m&quot;))">
+                  </a> <!-- createNewSmartPlaylist(Album, ends with, m, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE("%m")) -->
+                  <span class="method-name">createNewSmartPlaylist</span>
+                  <span class="parameters">(Album,ends with,m,SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE("%m"))</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylist(Title, begins with, t, SELECT * from dbkoel.songs s WHERE s.title LIKE (&quot;t%&quot;))">
+                  </a> <!-- createNewSmartPlaylist(Title, begins with, t, SELECT * from dbkoel.songs s WHERE s.title LIKE ("t%")) -->
+                  <span class="method-name">createNewSmartPlaylist</span>
+                  <span class="parameters">(Title,begins with,t,SELECT * from dbkoel.songs s WHERE s.title LIKE ("t%"))</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylist(Title, contains, Take, SELECT * from dbkoel.songs s WHERE s.title LIKE &quot;%Take%&quot;)">
+                  </a> <!-- createNewSmartPlaylist(Title, contains, Take, SELECT * from dbkoel.songs s WHERE s.title LIKE "%Take%") -->
+                  <span class="method-name">createNewSmartPlaylist</span>
+                  <span class="parameters">(Title,contains,Take,SELECT * from dbkoel.songs s WHERE s.title LIKE "%Take%")</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylist(Album, begins with, m, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE(&quot;m%...)">
+                  </a> <!-- createNewSmartPlaylist(Album, begins with, m, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE("m%...) -->
+                  <span class="method-name">createNewSmartPlaylist</span>
+                  <span class="parameters">(Album,begins with,m,SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE("m%"))</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createNewSmartPlaylist(Title, is not, Reactor, SELECT * from dbkoel.songs s WHERE s.title!=&quot;Reactor&quot;)">
+                  </a> <!-- createNewSmartPlaylist(Title, is not, Reactor, SELECT * from dbkoel.songs s WHERE s.title!="Reactor") -->
+                  <span class="method-name">createNewSmartPlaylist</span>
+                  <span class="parameters">(Title,is not,Reactor,SELECT * from dbkoel.songs s WHERE s.title!="Reactor")</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Master_Suite-class-passed -->
+        </div> <!-- panel Master_Suite -->
+        <div panel-name="test-xml-Master_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\pivov\Documents\TEST PRO\AutomationSeleniumGit\singleTest.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Master Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;parameter name=&quot;password&quot; value=&quot;te$t$tudent&quot;/&gt;
+  &lt;parameter name=&quot;browser&quot; value=&quot;Chrome&quot;/&gt;
+  &lt;parameter name=&quot;url&quot; value=&quot;https://qa.koel.app&quot;/&gt;
+  &lt;parameter name=&quot;email&quot; value=&quot;demo@class.com&quot;/&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;listener.Listeners&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Selenium Tests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;pageObjectTests.SmartPlaylistTests&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;createNewSmartPlaylistWithDefaultNameAndModel&quot;/&gt;
+          &lt;include name=&quot;createNewSmartPlaylist&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- pageObjectTests.SmartPlaylistTests --&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Selenium Tests --&gt;
+&lt;/suite&gt; &lt;!-- Master Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Master_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Master Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Selenium Tests (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Master_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Master Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Master_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Master Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Master_Suite');
+function tableData_Master_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(11);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'createNewSmartPlaylist')
+data.setCell(0, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(0, 3, 5453);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'createNewSmartPlaylist')
+data.setCell(1, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(1, 3, 5132);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'createNewSmartPlaylist')
+data.setCell(2, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(2, 3, 5013);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'createNewSmartPlaylist')
+data.setCell(3, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(3, 3, 4965);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'createNewSmartPlaylist')
+data.setCell(4, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(4, 3, 4919);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'createNewSmartPlaylist')
+data.setCell(5, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(5, 3, 4899);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'createNewSmartPlaylist')
+data.setCell(6, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(6, 3, 4878);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'createNewSmartPlaylist')
+data.setCell(7, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(7, 3, 4855);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'createNewSmartPlaylist')
+data.setCell(8, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(8, 3, 4808);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'createNewSmartPlaylist')
+data.setCell(9, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(9, 3, 4632);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'createNewSmartPlaylistWithDefaultNameAndModel')
+data.setCell(10, 2, 'pageObjectTests.SmartPlaylistTests')
+data.setCell(10, 3, 4286);
+window.suiteTableData['Master_Suite']= { tableData: data, tableDiv: 'times-div-Master_Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 53 seconds</span>
+              <div id="times-div-Master_Suite">
+              </div> <!-- times-div-Master_Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Master_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Master Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Master_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Master_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">pageObjectTests.SmartPlaylistTests</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">createNewSmartPlaylistWithDefaultNameAndModel(Pluto, SELECT * FROM dbkoel.songs s WHERE s.title="Pluto")</span>
+                <span class="method-start">4765 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">9057 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">9827 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">10169 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createNewSmartPlaylist(Album, contains, Unknown, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE ...)</span>
+                <span class="method-start">11683 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">16539 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">17277 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">17600 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createNewSmartPlaylist(Album, is not, Unknown Album, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name!=...)</span>
+                <span class="method-start">19032 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">23910 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">24640 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">24962 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createNewSmartPlaylist(Album, does not contain, Album, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name...)</span>
+                <span class="method-start">26436 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">31069 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">31779 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">32125 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createNewSmartPlaylist(Album, begins with, m, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE("m%...)</span>
+                <span class="method-start">33602 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">38501 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">39252 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">39603 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createNewSmartPlaylist(Album, ends with, m, SELECT * FROM songs s JOIN albums a ON s.album_id =a.id WHERE a.name LIKE("%m"))</span>
+                <span class="method-start">41024 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">46477 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">47218 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">47551 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createNewSmartPlaylist(Title, contains, Take, SELECT * from dbkoel.songs s WHERE s.title LIKE "%Take%")</span>
+                <span class="method-start">48993 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">53913 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">55670 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">56080 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createNewSmartPlaylist(Title, is not, Reactor, SELECT * from dbkoel.songs s WHERE s.title!="Reactor")</span>
+                <span class="method-start">57591 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">62724 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">63491 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">63808 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createNewSmartPlaylist(Title, does not contain, pluto, SELECT * from dbkoel.songs s WHERE s.title NOT LIKE("%pluto%"))</span>
+                <span class="method-start">65231 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">70244 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">71016 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">71350 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createNewSmartPlaylist(Title, begins with, t, SELECT * from dbkoel.songs s WHERE s.title LIKE ("t%"))</span>
+                <span class="method-start">72805 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">77613 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">78349 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeAll(https://qa.koel.app, demo@class.com, te$t$tudent, Chrome)</span>
+                <span class="method-start">78640 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createNewSmartPlaylist(Title, ends with, t, SELECT * from dbkoel.songs s WHERE s.title LIKE ("%t"))</span>
+                <span class="method-start">80071 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deletePlaylist</span>
+                <span class="method-start">85037 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterAll</span>
+                <span class="method-start">85754 ms</span>
+              </div> <!-- configuration-method after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>
