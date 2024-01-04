@@ -8,6 +8,7 @@ public class Credentials {
         this.email = email;
         this.password = password;
     }
+    public Credentials() {};
 
     public String getEmail() {
         return email;
