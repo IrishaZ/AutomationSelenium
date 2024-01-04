@@ -1,19 +1,15 @@
 package models;
 
-public class UserProfile {
+public class UserProfile extends Credentials {
     private String name;
     private String email;
     private String current_password;
     private String new_password;
 
     public UserProfile(String name, String email, String current_password, String new_password) {
-        this.name = name;
-        this.email = email;
-        this.current_password = current_password;
+        super(email,current_password);
         this.new_password = new_password;
     }
-    public UserProfile() {}
-
     public String getName() {
         return name;
     }

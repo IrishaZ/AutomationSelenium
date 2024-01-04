@@ -35,8 +35,8 @@ public class AlbumPage extends BasePage{
             driver.navigate().refresh();
         };
         if(filteredList.size()>0){album=filteredList.get(0);}
-//        js.executeScript("arguments[0].scrollIntoView();",album);
-        scrollTillVisible(album);
+        js.executeScript("arguments[0].scrollIntoView();",album);
+//        scrollTillVisible(album);
         album.click();
         return new CurrentQueuePage(driver);
     }

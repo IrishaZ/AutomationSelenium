@@ -7,7 +7,7 @@
     <parameter name="email" value="irina.zhukova@testpro.io"/>
     <parameter name="password" value="te$t$tudent84"/>
     <parameter name="browser" value="Chrome"/>
-    <test name="Selenium Tests">
+    <test name="Selenium TestApiLogIn">
         <classes>
             <class name="pageObjectTests.LogIn">
                 <methods>

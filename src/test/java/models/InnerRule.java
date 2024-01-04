@@ -1,22 +1,23 @@
 package models;
 
-import java.util.List;
+import java.util.Arrays;
 
-public class Rules {
+public class InnerRule {
     private long id;
     private String model;
     private String operator;
-    private List<String> value;
+    private String[] value;
 
-    public Rules(long id, String model, String operator, List<String> value) {
-        this.id = id;
+    public InnerRule(String model, String operator, String[] value) {
         this.model = model;
         this.operator = operator;
         this.value = value;
     }
-    public Rules() {};
 
-        public long getId() {
+    public InnerRule() {
+    }
+
+    public long getId() {
         return id;
     }
 
@@ -40,11 +41,21 @@ public class Rules {
         this.operator = operator;
     }
 
-    public List<String> getValue() {
+    public String[] getValue() {
         return value;
     }
 
-    public void setValue(List<String> value) {
+    public void setValue(String[] value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "InnerRule{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", operator='" + operator + '\'' +
+                ", value=" + Arrays.toString(value) +
+                '}';
     }
 }

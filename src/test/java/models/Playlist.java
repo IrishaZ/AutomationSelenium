@@ -1,16 +1,14 @@
 package models;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.Arrays;
 
 public class Playlist {
     private int id;
     private String name;
-    private List<Objects> rules;
-    private Boolean is_smart;
+    private Rule[] rules;
+    private boolean is_smart;
 
-    public Playlist(int id, String name, List<Objects> rules, Boolean is_smart) {
-        this.id = id;
+    public Playlist(String name, Rule[] rules, boolean is_smart) {
         this.name = name;
         this.rules = rules;
         this.is_smart = is_smart;
@@ -33,19 +31,29 @@ public class Playlist {
         this.name = name;
     }
 
-    public List<Objects> getRules() {
+    public Rule[] getRules() {
         return rules;
     }
 
-    public void setRules(List<Objects> rules) {
+    public void setRules(Rule[]  rules) {
         this.rules = rules;
     }
 
-    public Boolean getIs_smart() {
+    public boolean getIs_smart() {
         return is_smart;
     }
 
-    public void setIs_smart(Boolean is_smart) {
+    public void setIs_smart(boolean is_smart) {
         this.is_smart = is_smart;
+    }
+
+    @Override
+    public String toString() {
+        return "Playlist{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", rules=" + Arrays.toString(rules) +
+                ", is_smart=" + is_smart +
+                '}';
     }
 }
